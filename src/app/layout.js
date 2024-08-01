@@ -2,6 +2,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
+import { ContentProvider } from "./context/ContentContext";
+import TextArea from "./components/TextArea";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,30 +14,22 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <Header />
-        <div className="flex mt-10 min-w-full justify-between">
-          <Sidebar />
-          <div className="pt-10 flex-4 flex-col md:flex-row justify-around">
-            <h2 className="py-5 px-5 text-xl block mb-4 font-medium text-gray-900 dark:text-white">
-              Here are your results 👇
-            </h2>
-            {children}
+    <ContentProvider>
+      <html lang="en">
+        <body className={inter.className}>
+          <Header />
+          <div className="flex mt-10 min-w-full justify-between">
+            <Sidebar />
+            <div className="pt-10 flex-4 flex-col md:flex-row justify-around">
+              <h2 className="py-5 px-5 text-xl block mb-4 font-medium text-gray-900 dark:text-white">
+                Here are your results 👇
+              </h2>
+              {children}
+            </div>
+            <TextArea />
           </div>
-          <div className="p-8 w-full max-w-fit lg:w-1/2 rounded-sm flex-5 flex-col dark:bg-gray-900 dark:border-gray-700">
-            <label className="text-xl block mb-4 font-medium text-gray-900 dark:text-white">
-              Content
-            </label>
-            <textarea
-              className="bg-gray-800 p-2 rounded-sm"
-              placeholder="Your optimized content will go here..."
-              rows={36}
-              cols={68}
-            ></textarea>
-          </div>
-        </div>
-      </body>
-    </html>
+        </body>
+      </html>
+    </ContentProvider>
   );
 }

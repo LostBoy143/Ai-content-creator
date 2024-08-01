@@ -1,17 +1,30 @@
+"use client";
 import React from "react";
+import { useMyContext } from "../context/ContentContext";
+import parseContent from "../utils/parseContent";
 
 const FeedItem = ({ item }) => {
+  const { state, dispatch } = useMyContext();
+  console.log(item, "item");
   return (
     <div className="flex flex-col space-x-3 space-y-1 text-gray-600 transition-colors p-4 duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
       <div className="flex ">{item?.title}</div>
       <div className="p-3 space-x-3">
-        <button className="font-medium text-blue-600 background-transparent outline-none focus:outline-none mr-1 pb-1">
+        <button
+          onClick={() =>
+            dispatch({
+              type: "SET_DATA",
+              payload: parseContent(item?.description),
+            })
+          }
+          className="transition-colors p-2 duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 dark:hover:text-gray-100 hover:text-gray-500 font-medium text-blue-600 background-transparent outline-none focus:outline-none"
+        >
           expand..
         </button>
-        <button className="font-medium text-blue-600 background-transparent outline-none focus:outline-none mr-1 pb-1">
+        <button className="transition-colors p-2 duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 dark:hover:text-gray-100 hover:text-gray-500 font-medium text-blue-600 background-transparent outline-none focus:outline-none">
           blog..
         </button>
-        <button className="font-medium text-blue-600 background-transparent outline-none focus:outline-none mr-1 pb-1">
+        <button className="transition-colors p-2 duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 dark:hover:text-gray-100 hover:text-gray-500 font-medium text-blue-600 background-transparent outline-none focus:outline-none">
           tweet..
         </button>
       </div>

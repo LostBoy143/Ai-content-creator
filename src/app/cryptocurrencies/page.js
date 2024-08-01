@@ -2,6 +2,7 @@
 import React from "react";
 import FeedItem from "../components/FeedItem";
 import { baseUrl, crypto } from "../utils/constants";
+import parseContent from "../utils/parseContent";
 
 const Cryptocurrencies = () => {
   const [data, setData] = React.useState(null);
@@ -12,7 +13,9 @@ const Cryptocurrencies = () => {
       console.error("Failed to fetch feed", feed);
       return;
     }
+    console.log(feed?.items[0]?.content);
     setData(feed);
+    console.log(parseContent(feed?.items[0]?.content));
   };
 
   React.useEffect(() => {
