@@ -5,6 +5,7 @@ import Sidebar from "./components/Sidebar";
 import { ContentProvider } from "./context/ContentContext";
 import TextArea from "./components/TextArea";
 import RouteChangeHandler from "./components/RouteChangeHandler";
+import { Suspense } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,7 +27,9 @@ export default function RootLayout({ children }) {
                 <h2 className="py-5 px-5 text-xl block mb-4 font-medium text-gray-900 dark:text-white">
                   Here are your results 👇
                 </h2>
-                <RouteChangeHandler>{children}</RouteChangeHandler>
+                <Suspense fallback={<div>Loading...</div>}>
+                  <RouteChangeHandler>{children}</RouteChangeHandler>
+                </Suspense>
               </div>
               <TextArea />
             </div>

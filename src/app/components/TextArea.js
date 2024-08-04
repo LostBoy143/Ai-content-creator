@@ -48,7 +48,7 @@ const TextArea = () => {
         }
         placeholder="Your optimized content will go here..."
         rows={36}
-        cols={68}
+        cols={62}
       ></textarea>
     </div>
   );
