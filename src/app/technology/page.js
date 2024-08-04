@@ -13,7 +13,7 @@ const Technology = () => {
       return;
     }
     setData(feed);
-    console.log(feed);
+    // console.log(feed);
   };
 
   React.useEffect(() => {

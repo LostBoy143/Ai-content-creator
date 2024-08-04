@@ -12,6 +12,8 @@ const reducer = (state, action) => {
       return { ...state, content: action.payload };
     case "REMOVE_DATA":
       return { ...state, content: "" };
+    case "SET_BLOG":
+      return { ...state, content: action.payload };
     default:
       return state;
   }
