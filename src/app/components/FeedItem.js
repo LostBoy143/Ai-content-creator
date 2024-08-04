@@ -8,9 +8,7 @@ import { BlogPrompt, TweetPrompt } from "../utils/constants";
 const FeedItem = ({ item }) => {
   const { state, dispatch } = useMyContext();
 
-  // console.log(item, "item");
   const createBlog = async (prompt, content) => {
-    console.log("cld");
     try {
       const data = await cohere.chat({
         model: "command",
@@ -22,14 +20,12 @@ const FeedItem = ({ item }) => {
         ],
         message: content,
       });
-      console.log("data", data);
       dispatch({ type: "SET_BLOG", payload: data?.text });
     } catch (error) {
       console.log(error);
     }
   };
   const createTweet = async (prompt, content) => {
-    console.log("cld");
     try {
       const data = await cohere.chat({
         model: "command",
@@ -41,7 +37,6 @@ const FeedItem = ({ item }) => {
         ],
         message: content,
       });
-      console.log("data", data);
       dispatch({ type: "SET_TWEET", payload: data?.text });
     } catch (error) {
       console.log(error);

@@ -8,7 +8,6 @@ const TextArea = () => {
   const handleCopy = () => {
     navigator.clipboard.writeText(state.content).then(
       () => {
-        console.log("Text copied to clipboard");
         setCopied(true);
         setTimeout(() => {
           setCopied(false);

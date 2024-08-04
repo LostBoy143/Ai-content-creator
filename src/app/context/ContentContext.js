@@ -6,7 +6,6 @@ export const ContentContext = React.createContext();
 const initialState = { content: "" };
 
 const reducer = (state, action) => {
-  console.log("called");
   switch (action.type) {
     case "SET_DATA":
       return { ...state, content: action.payload };
