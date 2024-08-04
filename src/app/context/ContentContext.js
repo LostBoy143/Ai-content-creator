@@ -14,6 +14,8 @@ const reducer = (state, action) => {
       return { ...state, content: "" };
     case "SET_BLOG":
       return { ...state, content: action.payload };
+    case "SET_TWEET":
+      return { ...state, content: action.payload };
     default:
       return state;
   }

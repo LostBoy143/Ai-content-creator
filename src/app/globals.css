@@ -8,6 +8,26 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+/* styles/globals.css */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden; /* Prevent the body from scrolling */
+}
+
+#__next {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Make the container take the full viewport height */
+}
+
+main {
+  display: flex;
+  flex: 1;
+  overflow-y: auto; /* Allow vertical scrolling in the main content area */
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;

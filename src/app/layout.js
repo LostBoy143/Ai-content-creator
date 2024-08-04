@@ -19,15 +19,17 @@ export default function RootLayout({ children }) {
       <html lang="en">
         <body className={inter.className}>
           <Header />
-          <div className="flex mt-10 min-w-full justify-between">
+          <div className="flex mt-10 min-w-full h-screen overflow-hidden justify-between">
             <Sidebar />
-            <div className="pt-10 flex-4 flex-col md:flex-row justify-around">
-              <h2 className="py-5 px-5 text-xl block mb-4 font-medium text-gray-900 dark:text-white">
-                Here are your results 👇
-              </h2>
-              <RouteChangeHandler>{children}</RouteChangeHandler>
+            <div className="flex-1 flex flex-col md:flex-row justify-around overflow-y-auto">
+              <div className="flex-1 p-10">
+                <h2 className="py-5 px-5 text-xl block mb-4 font-medium text-gray-900 dark:text-white">
+                  Here are your results 👇
+                </h2>
+                <RouteChangeHandler>{children}</RouteChangeHandler>
+              </div>
+              <TextArea />
             </div>
-            <TextArea />
           </div>
         </body>
       </html>
