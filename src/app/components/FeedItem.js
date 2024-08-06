@@ -3,7 +3,7 @@ import React from "react";
 import { useMyContext } from "../context/ContentContext";
 import parseContent from "../utils/parseContent";
 import cohere from "../utils/Cohere";
-import { BlogPrompt, TweetPrompt } from "../utils/constants";
+import { BlogPrompt, LinkedInPrompt, TweetPrompt } from "../utils/constants";
 
 const FeedItem = ({ item }) => {
   const { state, dispatch } = useMyContext();
@@ -42,6 +42,23 @@ const FeedItem = ({ item }) => {
       console.log(error);
     }
   };
+  const createLinkedinPost = async (prompt, content) => {
+    try {
+      const data = await cohere.chat({
+        model: "command",
+        chatHistory: [
+          {
+            role: "USER",
+            message: prompt,
+          },
+        ],
+        message: content,
+      });
+      dispatch({ type: "SET_LINKEDIN_POST", payload: data?.text });
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="flex flex-col space-x-3 space-y-1 text-gray-600 transition-colors p-4 duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700">
       <div className="flex ">{item?.title}</div>
@@ -72,6 +89,17 @@ const FeedItem = ({ item }) => {
           className="transition-colors p-2 duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 dark:hover:text-gray-100 hover:text-gray-500 font-medium text-blue-600 background-transparent outline-none focus:outline-none"
         >
           tweet..
+        </button>
+        <button
+          onClick={() =>
+            createLinkedinPost(
+              LinkedInPrompt,
+              item?.title + " " + item?.description
+            )
+          }
+          className="transition-colors p-2 duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 dark:hover:text-gray-100 hover:text-gray-500 font-medium text-blue-600 background-transparent outline-none focus:outline-none"
+        >
+          linkedin..
         </button>
       </div>
     </div>

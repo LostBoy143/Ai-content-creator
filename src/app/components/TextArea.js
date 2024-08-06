@@ -40,14 +40,14 @@ const TextArea = () => {
         </button>
       </div>
       <textarea
-        className="bg-gray-800 p-2 rounded-sm"
+        className="bg-gray-800 p-2 rounded-sm "
         value={state.content}
         onChange={(e) =>
           dispatch({ type: "SET_DATA", payload: e.target.value })
         }
         placeholder="Your optimized content will go here..."
         rows={36}
-        cols={56}
+        cols={50}
       ></textarea>
     </div>
   );
