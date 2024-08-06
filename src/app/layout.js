@@ -6,6 +6,7 @@ import { ContentProvider } from "./context/ContentContext";
 import TextArea from "./components/TextArea";
 import RouteChangeHandler from "./components/RouteChangeHandler";
 import { Suspense } from "react";
+import LoadingSpinner from "./components/LoadingFull";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,7 +28,7 @@ export default function RootLayout({ children }) {
                 <h2 className="py-5 px-5 text-xl block mb-4 font-medium text-gray-900 dark:text-white">
                   Here are your results 👇
                 </h2>
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<LoadingSpinner />}>
                   <RouteChangeHandler>{children}</RouteChangeHandler>
                 </Suspense>
               </div>

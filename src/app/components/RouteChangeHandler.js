@@ -11,7 +11,7 @@ export function NavigationEvents({ children }) {
 
   useEffect(() => {
     const url = `${pathname}?${searchParams}`;
-    console.log(url);
+    // console.log(url);
     // Simulate loading state change
     setLoading(true);
     const timer = setTimeout(() => setLoading(false), 2000); // Adjust the timeout duration as needed

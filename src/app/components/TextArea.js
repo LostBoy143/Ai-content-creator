@@ -19,7 +19,7 @@ const TextArea = () => {
     );
   };
   return (
-    <div className="p-8 h-max w-full gap-2 max-w-fit lg:w-1/2 rounded-sm flex-5 flex-col dark:bg-gray-900 dark:border-gray-700">
+    <div className="p-8 h-max m-auto w-full gap-2 max-w-fit lg:w-1/2 rounded-sm flex-5 flex-col dark:bg-gray-900 dark:border-gray-700">
       <div className="flex justify-between items-center mb-4">
         <label className="text-xl block font-medium text-gray-900 dark:text-white">
           Content
@@ -47,7 +47,7 @@ const TextArea = () => {
         }
         placeholder="Your optimized content will go here..."
         rows={36}
-        cols={62}
+        cols={56}
       ></textarea>
     </div>
   );
