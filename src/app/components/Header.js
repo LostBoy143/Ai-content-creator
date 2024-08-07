@@ -31,18 +31,21 @@ const Header = () => {
               <div className=" mt-4 hidden md:flex space-x-6 sm:justify-center items-center sm:mt-0">
                 <a
                   href="https://github.com/DaX-523"
+                  target="_blank"
                   className="text-gray-300 hover:text-gray-900 dark:hover:text-white"
                 >
                   <FaGithub size={24} />
                 </a>
                 <a
                   href="https://linkedin.com/in/daksh-dhama"
+                  target="_blank"
                   className="text-gray-300 hover:text-gray-900 dark:hover:text-white"
                 >
                   <FaLinkedin size={24} />
                 </a>
                 <a
                   href="https://x.com/DakshJs"
+                  target="_blank"
                   className="text-gray-300 hover:text-gray-900 dark:hover:text-white"
                 >
                   <FaTwitter size={24} />

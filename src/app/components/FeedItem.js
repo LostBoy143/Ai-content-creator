@@ -2,24 +2,15 @@
 import React from "react";
 import { useMyContext } from "../context/ContentContext";
 import parseContent from "../utils/parseContent";
-import cohere from "../utils/Cohere";
 import { BlogPrompt, LinkedInPrompt, TweetPrompt } from "../utils/constants";
+import call from "../utils/CohereApiCall";
 
 const FeedItem = ({ item }) => {
   const { state, dispatch } = useMyContext();
 
   const createBlog = async (prompt, content) => {
     try {
-      const data = await cohere.chat({
-        model: "command",
-        chatHistory: [
-          {
-            role: "USER",
-            message: prompt,
-          },
-        ],
-        message: content,
-      });
+      const data = await call(prompt, content);
       dispatch({ type: "SET_BLOG", payload: data?.text });
     } catch (error) {
       console.log(error);
@@ -27,16 +18,7 @@ const FeedItem = ({ item }) => {
   };
   const createTweet = async (prompt, content) => {
     try {
-      const data = await cohere.chat({
-        model: "command",
-        chatHistory: [
-          {
-            role: "USER",
-            message: prompt,
-          },
-        ],
-        message: content,
-      });
+      const data = await call(prompt, content);
       dispatch({ type: "SET_TWEET", payload: data?.text });
     } catch (error) {
       console.log(error);
@@ -44,16 +26,8 @@ const FeedItem = ({ item }) => {
   };
   const createLinkedinPost = async (prompt, content) => {
     try {
-      const data = await cohere.chat({
-        model: "command",
-        chatHistory: [
-          {
-            role: "USER",
-            message: prompt,
-          },
-        ],
-        message: content,
-      });
+      const data = await call(prompt, content);
+
       dispatch({ type: "SET_LINKEDIN_POST", payload: data?.text });
     } catch (error) {
       console.log(error);
