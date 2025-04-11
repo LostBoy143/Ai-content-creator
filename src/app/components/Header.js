@@ -4,10 +4,15 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { MdMenu } from "react-icons/md";
 import ModalMenu from "./ModalMenu";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa6";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaTwitter,
+} from "react-icons/fa6";
 
 const Header = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] =
+    useState(false);
 
   const handleMenuClick = () => {
     setIsModalOpen(true);
@@ -30,14 +35,14 @@ const Header = () => {
             <div className="justify-end ">
               <div className=" mt-4 hidden md:flex space-x-6 sm:justify-center items-center sm:mt-0">
                 <a
-                  href="https://github.com/DaX-523"
+                  href="https://github.com/LostBoy143"
                   target="_blank"
                   className="text-gray-300 hover:text-gray-900 dark:hover:text-white"
                 >
                   <FaGithub size={24} />
                 </a>
                 <a
-                  href="https://linkedin.com/in/daksh-dhama"
+                  href="https://https://www.linkedin.com/in/shubham-singh-35153122b/"
                   target="_blank"
                   className="text-gray-300 hover:text-gray-900 dark:hover:text-white"
                 >
@@ -60,7 +65,10 @@ const Header = () => {
           </div>
         </div>
       </nav>
-      <ModalMenu isOpen={isModalOpen} onClose={handleCloseModal} />
+      <ModalMenu
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      />
     </div>
   );
 };

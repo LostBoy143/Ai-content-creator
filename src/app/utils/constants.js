@@ -1,10 +1,12 @@
-export const baseUrl = "https://api.rss2json.com/v1/api.json?rss_url=";
+export const baseUrl =
+  "https://api.rss2json.com/v1/api.json?rss_url=";
 export const crypto =
   "https%3A%2F%2Fwww.newsbtc.com%2Ffeed%2F&api_key=q3da4kxlon35eoh80pd3f2k4ebopjz0211cj8pdo";
 export const finance =
   "https%3A%2F%2Ffeeds.feedburner.com%2Fndtvprofit-latest&api_key=q3da4kxlon35eoh80pd3f2k4ebopjz0211cj8pdo";
 export const politics =
-  "https%3A%2F%2Fwww.theguardian.com%2Fpolitics%2Frss&api_key=q3da4kxlon35eoh80pd3f2k4ebopjz0211cj8pdo";
+  "https%3A%2F%2Findianexpress.com%2Fsection%2Fpolitics%2Ffeed%2F&api_key=q3da4kxlon35eoh80pd3f2k4ebopjz0211cj8pdo";
+
 export const stocks =
   "https%3A%2F%2Feconomictimes.indiatimes.com%2Fmarkets%2Frssfeeds%2F1977021501.cms&api_key=q3da4kxlon35eoh80pd3f2k4ebopjz0211cj8pdo";
 export const technology =
